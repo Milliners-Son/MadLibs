@@ -1,0 +1,22 @@
+{
+  "name": "@nathanaelscott/madlibs",
+  "version": "1.0.0",
+  "description": "A component for replacing words in the dom from a JSON file",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Milliners-Son/MadLibs.git"
+  },
+  "author": "Nathanael Scott <scott.nathanael@abc.net.au>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Milliners-Son/MadLibs/issues"
+  },
+  "homepage": "https://github.com/Milliners-Son/MadLibs#readme",
+  "dependencies": {
+    "alternating-case-to-object": "^1.0.1"
+  }
+}
