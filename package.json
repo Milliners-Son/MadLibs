@@ -1,6 +1,6 @@
 {
   "name": "@nathanaelscott/madlibs",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A component for replacing words in the dom from a JSON file",
   "main": "index.js",
   "scripts": {
