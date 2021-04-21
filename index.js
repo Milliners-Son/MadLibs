@@ -35,15 +35,32 @@ const getNestedWord = (options, data) => {
   return word;
 };
 
+const getAnchorOptions = (target)=>{
+
+  if(target.title) return target.title;
+
+  if(target.getAttribute('href')){
+    let href = target.getAttribute('href');
+    if(href.indexOf('#')<0 || href.length<=1) return false;
+    return href.substring(1);
+  }
+  return false;
+}
+
 //Constructor
 const MadLibs = options => {
   //Get words on page
-  let targets = [...document.querySelectorAll('a[title^="WORD"]')];
+  let targets = [...document.querySelectorAll('a[title^="WORD"], a[href^="#WORD"]')];
 
   targets.forEach(target => {
    
     try {
-      let wordOpt = ac2o(target.title);
+    
+      let wordHash = getAnchorOptions(target);
+
+      if(!wordHash) throw 'No valid hash found';
+
+      let wordOpt = ac2o(wordHash);
       let wordData = options[wordOpt.word];
       let word;
 
@@ -61,8 +78,8 @@ const MadLibs = options => {
           break;
       }
       replaceSingleWord(target, word);
-    } catch (e) {
-      console.error('[MadLibs]',target,e);
+    } catch (err) {
+      console.error('[MadLibs]',target,err);
       //Remove the el anyway;
       replaceEl(target, "span");
     }
